@@ -2,48 +2,65 @@ import Image from "next/image";
 import { headers } from "next/headers";
 import Countdown from "./components/Countdown";
 
-function IconButton({ href, text }: { href: string; text: string }) {
+function IconButton({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
       style={{
-        width: 68,
-        height: 68,
+        width: 64,
+        height: 64,
         borderRadius: 18,
-        background: "rgba(255,255,255,0.14)",
+        background: "rgba(255,255,255,0.13)",
         border: "1px solid rgba(255,255,255,0.18)",
         display: "grid",
         placeItems: "center",
         textDecoration: "none",
-        color: "white",
-        fontWeight: 800,
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
+        boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
       }}
     >
-      {text}
+      {children}
     </a>
   );
 }
 
+
+const IconIG = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+    <rect x="2" y="2" width="20" height="20" rx="6" stroke="rgba(255,255,255,0.85)" strokeWidth="1.8"/>
+    <circle cx="12" cy="12" r="5" stroke="rgba(255,255,255,0.85)" strokeWidth="1.8"/>
+    <circle cx="17.5" cy="6.5" r="1.2" fill="rgba(255,255,255,0.85)"/>
+  </svg>
+);
+
+const IconTT = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="rgba(255,255,255,0.85)">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+  </svg>
+);
+
+const IconFB = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="rgba(255,255,255,0.85)">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+  </svg>
+);
+
 export default async function Page() {
-  // Ubicación aproximada por IP (en Vercel)
-  // En localhost puede salir "Desconocida" y es normal.
   const h = await headers();
   const city = h.get("x-vercel-ip-city") || "";
   const country = h.get("x-vercel-ip-country") || "";
   const location = city && country ? `${city}, ${country}` : "Desconocida";
 
-  // Datos de ERIN MIA JAMES
   const NAME = "ERIN MIA JAMES";
   const PROMO = "75% OFF · JUST TODAY";
 
-  // Links actualizados
   const LINK_MAIN = "https://onlyfans.com/erinmiajames";
   const LINK_IG = "https://www.instagram.com/erinmiajamesagain/";
   const LINK_TIKTOK = "https://www.tiktok.com/@itserinmiajames";
+  const LINK_FB = "https://www.facebook.com/ErinMiaJames/";
 
   return (
     <main
@@ -56,10 +73,8 @@ export default async function Page() {
         padding: "clamp(12px, 4vw, 28px)",
       }}
     >
-      {/* FONDO */}
       <Image src="/bg.jpg" alt="background" fill priority style={{ objectFit: "cover" }} />
 
-      {/* TARJETA (responsive) */}
       <div
         style={{
           width: "min(420px, 92vw)",
@@ -89,14 +104,7 @@ export default async function Page() {
 
           {/* NOMBRE + UBICACIÓN */}
           <div style={{ textAlign: "center" }}>
-            <div
-              style={{
-                fontSize: "clamp(30px, 7.5vw, 44px)",
-                fontWeight: 900,
-                letterSpacing: 1,
-                lineHeight: 1.05,
-              }}
-            >
+            <div style={{ fontSize: "clamp(30px, 7.5vw, 44px)", fontWeight: 900, letterSpacing: 1, lineHeight: 1.05 }}>
               {NAME}
             </div>
             <div style={{ opacity: 0.9, fontSize: "clamp(16px, 4.2vw, 20px)" }}>{location}</div>
@@ -144,8 +152,6 @@ export default async function Page() {
                   display: "block",
                 }}
               />
-
-              {/* badge */}
               <div
                 style={{
                   position: "absolute",
@@ -162,7 +168,7 @@ export default async function Page() {
                   WebkitBackdropFilter: "blur(10px)",
                 }}
               >
-                OF 🔒
+                🔒
               </div>
             </a>
 
@@ -173,9 +179,9 @@ export default async function Page() {
 
           {/* LINKS */}
           <div style={{ display: "flex", gap: 14, marginTop: 14, flexWrap: "wrap", justifyContent: "center" }}>
-            <IconButton href={LINK_MAIN} text="OF🔒" />
-            <IconButton href={LINK_IG} text="IG" />
-            <IconButton href={LINK_TIKTOK} text="TT" />
+            <IconButton href={LINK_IG}><IconIG /></IconButton>
+            <IconButton href={LINK_TIKTOK}><IconTT /></IconButton>
+            <IconButton href={LINK_FB}><IconFB /></IconButton>
           </div>
         </div>
       </div>
