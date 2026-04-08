@@ -9,7 +9,7 @@ const trackingLinks: Record<string, string> = {
   va2045: "https://onlyfans.com/erinmiajames/c7",
   va2037: "https://onlyfans.com/erinmiajames/c6",
   va1525: "https://onlyfans.com/erinmiajames/c5",
-  luis:   "https://onlyfans.com/erinmiajames/c4",
+  lu:   "https://onlyfans.com/erinmiajames/c4",
   default: "https://onlyfans.com/erinmiajames",
 };
 
