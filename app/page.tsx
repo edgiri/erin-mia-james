@@ -2,6 +2,17 @@ import Image from "next/image";
 import { headers } from "next/headers";
 import Countdown from "./components/Countdown";
 
+// Tracking links por cuenta
+const trackingLinks: Record<string, string> = {
+  va2049: "https://onlyfans.com/erinmiajames/c9",
+  va2048: "https://onlyfans.com/erinmiajames/c8",
+  va2045: "https://onlyfans.com/erinmiajames/c7",
+  va2037: "https://onlyfans.com/erinmiajames/c6",
+  va1525: "https://onlyfans.com/erinmiajames/c5",
+  luis:   "https://onlyfans.com/erinmiajames/c4",
+  default: "https://onlyfans.com/erinmiajames",
+};
+
 function IconButton({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a
@@ -27,7 +38,6 @@ function IconButton({ href, children }: { href: string; children: React.ReactNod
   );
 }
 
-
 const IconIG = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
     <rect x="2" y="2" width="20" height="20" rx="6" stroke="rgba(255,255,255,0.85)" strokeWidth="1.8"/>
@@ -48,16 +58,22 @@ const IconFB = () => (
   </svg>
 );
 
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ ref?: string }>;
+}) {
   const h = await headers();
   const city = h.get("x-vercel-ip-city") || "";
   const country = h.get("x-vercel-ip-country") || "";
   const location = city && country ? `${decodeURIComponent(city)}, ${country}` : "Desconocida";
 
+  const { ref } = await searchParams;
+  const LINK_MAIN = trackingLinks[ref ?? ""] ?? trackingLinks["default"];
+
   const NAME = "ERIN MIA JAMES";
   const PROMO = "75% OFF · JUST TODAY";
 
-  const LINK_MAIN = "https://onlyfans.com/erinmiajames";
   const LINK_IG = "https://www.instagram.com/erinmiajamesagain/";
   const LINK_TIKTOK = "https://www.tiktok.com/@itserinmiajames";
   const LINK_FB = "https://www.facebook.com/ErinMiaJames/";
