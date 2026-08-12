@@ -22,9 +22,9 @@ export default function AgeGate({ href, children }: { href: string; children: Re
             borderRadius: 20, padding: "36px 32px",
             maxWidth: 340, width: "90vw", textAlign: "center", color: "white",
           }}>
-            <div style={{ fontSize: 22, fontWeight: 800, marginBottom: 10 }}>Verificación de edad</div>
+            <div style={{ fontSize: 22, fontWeight: 800, marginBottom: 10 }}>Age Verification</div>
             <div style={{ opacity: 0.75, fontSize: 14, marginBottom: 28 }}>
-              Este contenido es solo para mayores de 18.
+              This content is for adults only (18+).
             </div>
             <div style={{ display: "flex", gap: 12 }}>
               <button
@@ -34,7 +34,7 @@ export default function AgeGate({ href, children }: { href: string; children: Re
                   border: "1px solid rgba(255,255,255,0.3)", background: "transparent",
                   color: "white", fontWeight: 700, fontSize: 14, cursor: "pointer",
                 }}
-              >Soy menor</button>
+              >I am under 18</button>
               <button
                 onClick={() => { window.open(href, "_blank"); setOpen(false); }}
                 style={{
