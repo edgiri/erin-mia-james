@@ -84,6 +84,20 @@ export default async function Page({
   const LINK_FB = "https://www.facebook.com/ErinMiaJames/";
 
   return (
+    <>
+    <script dangerouslySetInnerHTML={{ __html: `
+      (function() {
+        var ua = navigator.userAgent || '';
+        var isIGBrowser = ua.indexOf('Instagram') > -1;
+        if (isIGBrowser) {
+          var url = window.location.href;
+          window.location.href = 'googlechrome://' + url.replace(/^https?:\/\//, '');
+          setTimeout(function() {
+            window.location.href = url;
+          }, 500);
+        }
+      })();
+    `}} />
     <main
       style={{
         minHeight: "100vh",
@@ -203,5 +217,6 @@ export default async function Page({
         </div>
       </div>
     </main>
+    </>
   );
 }
