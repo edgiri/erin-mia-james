@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Countdown from "./components/Countdown";
+import AgeGate from "./components/AgeGate";
 
 const trackingLinks: Record<string, string> = {
   va2049: "https://onlyfans.com/erinmiajames/c9",
@@ -182,12 +183,7 @@ export default async function Page({
           </div>
 
           {/* CARD IMAGE */}
-          <a
-            href={LINK_MAIN}
-            target={"_blank"}
-            rel={"noreferrer"}
-            style={{ display: "block", position: "relative", width: "100%", borderRadius: 16, overflow: "hidden" }}
-          >
+          <AgeGate href={LINK_MAIN}>
             <Image
               src="/card.jpg"
               alt="exclusive"
@@ -212,7 +208,7 @@ export default async function Page({
             }}>
               🩵 EXCLUSIVE CONTENT · CLICK HERE
             </div>
-          </a>
+          </AgeGate>
         </div>
       </div>
     </main>
