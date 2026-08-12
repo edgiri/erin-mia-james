@@ -42,7 +42,7 @@ export default function AgeGate({ href, children }: { href: string; children: Re
                   border: "none", background: "linear-gradient(135deg, #e91e8c, #c2185b)",
                   color: "white", fontWeight: 700, fontSize: 14, cursor: "pointer",
                 }}
-              >Soy mayor de 18</button>
+              >I am 18+, Continue</button>
             </div>
           </div>
         </div>
