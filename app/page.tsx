@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Countdown from "./components/Countdown";
 import AgeGate from "./components/AgeGate";
+import SocialMenu from "./components/SocialMenu";
 
 const trackingLinks: Record<string, string> = {
   va2049: "https://onlyfans.com/erinmiajames/c9",
@@ -79,6 +80,12 @@ export default async function Page({
 
   const NAME = "Erin Mia James";
   const PROMO = "75% OFF · JUST TODAY";
+  const IG_ACCOUNTS = [
+    { label: "erinmiajamesagain", url: "https://www.instagram.com/erinmiajamesagain/" },
+    { label: "erinmiaajames", url: "https://www.instagram.com/erinmiaajames/" },
+    { label: "erinmiajames", url: "https://www.instagram.com/erinmiajames/" },
+    { label: "erinmiajamesagainagain", url: "https://www.instagram.com/erinmiajamesagainagain/" },
+  ];
   const LINK_IG = "https://www.instagram.com/erinmiajamesagain/";
   const LINK_TIKTOK = "https://www.tiktok.com/@itserinmiajames";
   const LINK_TG = "https://t.me/+GjGJj2dorOEzNTE1";
@@ -148,7 +155,7 @@ export default async function Page({
           }}>
             <SocialButton href={LINK_TIKTOK}><IconTT /></SocialButton>
             <SocialButton href={LINK_TG}><IconTG /></SocialButton>
-            <SocialButton href={LINK_IG}><IconIG /></SocialButton>
+            <SocialMenu accounts={IG_ACCOUNTS}><IconIG /></SocialMenu>
             <SocialButton href={LINK_FB}><IconFB /></SocialButton>
           </div>
         </div>
