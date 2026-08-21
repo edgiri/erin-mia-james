@@ -209,6 +209,27 @@ export default async function Page({
               🩵 EXCLUSIVE CONTENT · CLICK HERE
             </div>
           </AgeGate>
+        {/* FOTO GRID */}
+          <div style={{ display: "flex", gap: 8, width: "100%", padding: "0 20px 28px" }}>
+            <div style={{ position: "relative", flex: 1, borderRadius: 12, overflow: "hidden" }}>
+              <img src="/photo1.jpg" style={{ width: "100%", height: 180, objectFit: "cover", display: "block" }} />
+              <div style={{ position: "absolute", top: 8, left: 8 }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.8))" }}>
+                  <rect x="2" y="2" width="20" height="20" rx="6" stroke="white" strokeWidth="1.8"/>
+                  <circle cx="12" cy="12" r="5" stroke="white" strokeWidth="1.8"/>
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+                </svg>
+              </div>
+            </div>
+            <div style={{ position: "relative", flex: 1, borderRadius: 12, overflow: "hidden" }}>
+              <img src="/photo2.jpg" style={{ width: "100%", height: 180, objectFit: "cover", display: "block" }} />
+              <div style={{ position: "absolute", top: 8, left: 8 }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.8))" }}>
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
